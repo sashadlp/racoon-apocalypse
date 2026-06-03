@@ -25,7 +25,6 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreUI();
     }
 
-    // --- COMMUNICATEUR POUR LA GAMELOOP ---
     public int GetScore()
     {
         return score;

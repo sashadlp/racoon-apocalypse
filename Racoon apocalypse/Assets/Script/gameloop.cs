@@ -52,17 +52,14 @@ public class Gameloop : MonoBehaviour
         
         if (victoryScreen != null)
         {
-            // 1. On récupère le script attaché à ton écran de victoire
             VictoryScreen screenScript = victoryScreen.GetComponent<VictoryScreen>();
             
-            // 2. On récupère le score actuel depuis le ScoreManager
             int scoreFinal = 0;
             if (ScoreManager.instance != null)
             {
                 scoreFinal = ScoreManager.instance.GetScore();
             }
 
-            // 3. La Gameloop ordonne à l'écran de s'afficher EN LUI PASSANT LE SCORE
             screenScript.Show(scoreFinal);
         }
         
