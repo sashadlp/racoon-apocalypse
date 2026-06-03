@@ -13,18 +13,16 @@ public class projectile : MonoBehaviour {
         
         if (ennemi != null)
         {
-            ennemi.TakeDamage(degats); // Utilise ta variable degats, c'est plus propre !
-            Destroy(gameObject);       // Pense à détruire le projectile quand il touche un ennemi
+            ennemi.TakeDamage(degats); 
+            Destroy(gameObject);      
         }
         else if (truc.CompareTag("cage")) {
-            // On essaie de récupérer le script de la cage
             DestructibleCage cage = truc.GetComponent<DestructibleCage>();
             
             if (cage != null) {
-                // On laisse la cage gérer sa propre libération (score + destruction)
+               
                 cage.LibererAnimal();
             } else {
-                // Sécurité : si le script n'est pas trouvé mais que le tag y est, on détruit quand même
                 Destroy(truc.gameObject);
             }
             

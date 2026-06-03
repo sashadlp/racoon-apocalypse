@@ -19,7 +19,6 @@ public class racoon : MonoBehaviour
     [SerializeField] private float reloadTime = 0.5f;             
     private GameObject projectilSave;           
     
-    // Remplacement du booléen par un flotteur pour le décompte (Timer du cours)
     private float reloadCountdown = 0f;                     
 
     [SerializeField] private int vie = 5;
@@ -83,8 +82,6 @@ public class racoon : MonoBehaviour
         groundCheck();
         animCheck();
 
-        // --- GESTION DU TIMER DU TIR (MÉTHODE COURS IIM) ---
-        // Si le décompte est supérieur à 0, il diminue chaque seconde avec le DeltaTime
         if (reloadCountdown > 0f) 
         {
             reloadCountdown -= Time.deltaTime;
@@ -130,7 +127,6 @@ public class racoon : MonoBehaviour
 
     void TryAttack(InputAction.CallbackContext phase)
     {
-        // On vérifie si le décompte est terminé (inférieur ou égal à 0) au lieu du booléen
         if (reloadCountdown <= 0f && projectil != null)
         {
             ExecuteAttack();
@@ -161,7 +157,6 @@ public class racoon : MonoBehaviour
             }                             
         }
 
-        // On lance le décompte à fond avec le reloadTime pour bloquer les prochains tirs
         reloadCountdown = reloadTime;               
     }
 

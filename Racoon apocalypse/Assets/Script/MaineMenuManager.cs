@@ -7,4 +7,10 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("level1"); 
     }
+    public void QuitGame()
+    {
+        Debug.Log("Le jeu se ferme..."); 
+
+        Application.Quit(); 
+    }
 }
